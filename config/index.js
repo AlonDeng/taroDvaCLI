@@ -2,9 +2,11 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 09:34:18
- * @LastEditTime: 2021-08-11 15:51:36
+ * @LastEditTime: 2021-08-12 15:39:46
  * @LastEditors: alon
  */
+import path from 'path';
+
 const config = {
   projectName: 'taroDvaCLI',
   date: '2021-8-11',
@@ -24,6 +26,11 @@ const config = {
     ],
     options: {
     }
+  },
+  alias: {
+    '@pages': path.resolve(__dirname, '..', 'src/pages'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@apis': path.resolve(__dirname, '..', 'src/utils/apis'),
   },
   framework: 'react',
   mini: {

@@ -2,14 +2,14 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 10:51:27
- * @LastEditTime: 2021-08-12 12:00:15
+ * @LastEditTime: 2021-08-12 15:38:13
  * @LastEditors: alon
  */
 import _ from 'lodash';
 import {
   verifiedCodeSend,
   verifiedCodeLogin,
-} from '../utils/services/apis/login';
+} from '@utils/services/apis/login';
 
 const defaultState = {
 };

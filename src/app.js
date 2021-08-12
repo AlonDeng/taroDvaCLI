@@ -2,11 +2,11 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 09:34:18
- * @LastEditTime: 2021-08-12 10:40:20
+ * @LastEditTime: 2021-08-12 15:36:01
  * @LastEditors: alon
  */
 import { Component } from 'react'
-import {createDva} from './utils/DvaUtil';
+import {createDva} from '@utils';
 
 import models from './models/index';
 import './app.scss'
