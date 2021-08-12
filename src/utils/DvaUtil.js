@@ -2,12 +2,13 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 10:13:54
- * @LastEditTime: 2021-08-11 14:16:15
+ * @LastEditTime: 2021-08-12 15:57:23
  * @LastEditors: alon
  */
 import {create} from 'dva-core';
 import {Provider} from 'react-redux';
-// import _ from 'loadsh';
+import createLoading from 'dva-loading'
+import _ from 'lodash';
 
 let app;
 let store;
@@ -34,11 +35,11 @@ const modelExtend = (namespace, id) => {
     ? `${namespace + id}`
     : `${namespace}_${new Date().valueOf()}`;
   console.log(newNamespace, isHasModels(newNamespace));
-  // let newModel = _.cloneDeep(models[namespace]);
-  // newModel.namespace = newNamespace;
+  let newModel = _.cloneDeep(models[namespace]);
+  newModel.namespace = newNamespace;
   //如果该模块不存在就生成一个新的
   if (!isHasModels(newNamespace)) {
-    let newModel = models[namespace].createModel(newNamespace);
+    newModel = models[namespace].createModel(newNamespace);
     app.model(newModel);
   }
   return newNamespace;
@@ -72,6 +73,7 @@ export const getDvaStore = () => {
 export const createDva = (options) => {
   // 1、创建dva实例
   app = create(options);
+  app.use(createLoading())
 
   // 2、装载model
   options.models.forEach((o) => {
