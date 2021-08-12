@@ -2,11 +2,12 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 09:34:18
- * @LastEditTime: 2021-08-11 17:53:57
+ * @LastEditTime: 2021-08-12 11:30:28
  * @LastEditors: alon
  */
 export default {
   pages: [
+    'pages/Login/Login',
     'pages/Home/Home',
     'pages/My/My',
     'pages/Discover/Discover',
