@@ -2,11 +2,12 @@
  * @Description: 
  * @Author: alon
  * @Date: 2021-08-11 09:34:18
- * @LastEditTime: 2021-08-12 15:36:01
+ * @LastEditTime: 2021-08-12 16:52:05
  * @LastEditors: alon
  */
 import { Component } from 'react'
-import {createDva} from '@utils';
+import {createDva, I18n, locales} from '@utils';
+import Taro from "@tarojs/taro";
 
 import models from './models/index';
 import './app.scss'
@@ -22,8 +23,19 @@ const app = createDva({
 });
 
 class App extends Component {
-  componentDidMount () {}
-
+  componentDidMount () {
+    this.initLocale();
+  }
+  async initLocale () {
+    let locale = Taro.getStorageSync('locale')
+    if (!locale) { // 初始化语言
+      const systemInfo = await Taro.getSystemInfo()
+      locale = systemInfo.language // 默认使用系统语言
+      Taro.setStorage({ key: 'locale', data: locale })
+    }
+    Taro.I18n = new I18n(locales, locale)
+  }
+  
   componentDidShow () {}
 
   componentDidHide () {}
